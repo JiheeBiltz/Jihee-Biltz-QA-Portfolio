@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 
 
@@ -44,10 +47,13 @@ public class CheckoutTest {
 
         //Open shopping cart and click Checkout
         driver.findElement(By.className("shopping_cart_link")).click();
-        driver.findElement(By.id("checkout")).click();
 
-        // Enter all valid checkout information
-        driver.findElement(By.id("first-name")).sendKeys("Jihee");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("first-name")))
+                .sendKeys("Jihee");
+
         driver.findElement(By.id("last-name")).sendKeys("Biltz");
         driver.findElement(By.id("postal-code")).sendKeys("20105");
 

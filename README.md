@@ -1,4 +1,5 @@
 # Jihee-Biltz-QA-Portfolio
+This is a self-directed QA portfolio project covering UI testing with SauceDemo and API testing with JSONPlaceholder.
 ```text
 QA Testing Portfolio
 │
